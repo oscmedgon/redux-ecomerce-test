@@ -4,21 +4,26 @@ import {connect} from 'react-redux'
 
 import ProductList from './ProductList'
 import * as productActions from '../actions/productActions'
+import * as cartActions from '../actions/cartActions'
 
 class ProductListContainer extends Component {
-  constructor (props, context) {
-    super(props, context)
-  }
+  constructor () {
+    super()
 
-  async ComponentWillMount () {
-    await this.props.productActions.fetchProducts()
+    this.handleOnAddItem = this.handleOnAddItem.bind(this)
   }
-
+  async ComponentDidMount () {
+    await this.props.productActions.fetchProduct()
+  }
+  handleOnAddItem (item) {
+    this.props.cartActions.addCartItem(item)
+  }
   render () {
     return (
       <ProductList
         loading={this.props.loading}
         products={this.props.products}
+        onAddItem={this.handleOnAddItem}
       />
     )
   }
@@ -30,7 +35,8 @@ ProductListContainer.defaultProps = {
 ProductListContainer.PropTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool.isRequired,
-  productActions: PropTypes.objectOf(PropTypes.func).isRequired
+  productActions: PropTypes.objectOf(PropTypes.func).isRequired,
+  cartActions: PropTypes.objectOf(PropTypes.func).isRequired
 }
 
 function mapStateToProps (state) {
@@ -42,7 +48,8 @@ function mapStateToProps (state) {
 
 function mapDispathToProps (dispatch) {
   return {
-    productActions: bindActionCreators(productActions, dispatch)
+    productActions: bindActionCreators(productActions, dispatch),
+    cartActions: bindActionCreators(cartActions, dispatch)
   }
 }
 

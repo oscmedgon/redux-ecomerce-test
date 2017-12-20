@@ -13,6 +13,6 @@ const initialState = {
     items: [],
     total: 0
   }
-};
+}
 
-export default initialState;
+export default initialState

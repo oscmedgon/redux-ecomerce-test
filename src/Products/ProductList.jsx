@@ -4,10 +4,12 @@ import Product from './Product'
 
 const ProductList = ({
   loading,
-  products
+  products,
+  onAddItem
 }) => (
   <section className='container'>
     {loading && <span>Cargando datos...</span>}
+    <h2>Productos</h2>
     <div className='row'>
       {
         products.map(product => (
@@ -20,7 +22,8 @@ const ProductList = ({
 
 ProductList.PropTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  onAddItem: PropTypes.func.isRequired
 }
 
 export default ProductList

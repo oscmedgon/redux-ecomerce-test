@@ -47,7 +47,10 @@ const Product = ({
         </li>
       </ul>
       <div className='card-block'>
-        <button className='btn btn-primary' type='button'>
+        <button
+          className='btn btn-primary'
+          type='button'
+          onClick={() => onAddItem({_id, name, description, image, price, deliberyStimate, category})}>
           <span className='fa fa-cart-plus'> Añadir al carrito</span>
         </button>
       </div>
