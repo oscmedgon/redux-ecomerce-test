@@ -1,6 +1,6 @@
-const webpack = require('webpack')
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -24,6 +24,7 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
+
   module: {
     rules: [
       {
@@ -34,27 +35,27 @@ module.exports = {
         }
       },
       {
-        test: /\.css?$/,
+        test: /\.css$/,
         use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'}
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
         ]
       },
       {
-        test: /\.eot(\?v=\d+\.\d+)?$/,
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         use: 'file-loader'
       },
       {
-        test: /\.(woff|woff2)?$/,
-        use: 'url.loader?prefix=font/&limit=5000'
+        test: /\.(woff|woff2)$/,
+        use: 'url-loader?prefix=font/&limit=5000'
       },
       {
-        test: /\.ttf(\?v=\d+\.\d+)?$/,
-        use: 'url.loader?limit=10000&mimetype=application/octet-stream'
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        use: 'url-loader?limit=10000&mimetype=application/octet-stream'
       },
       {
-        test: /\.svg((\?v=\d+\.\d+))?$/,
-        use: 'url.loader?limit=10000&mimetype=image/svg+xml'
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: 'url-loader?limit=10000&mimetype=image/svg+xml'
       }
     ]
   },
@@ -63,17 +64,18 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Redux Ecomerce',
+      title: 'Redux Ecommerce',
       template: path.join(__dirname, 'src', 'index.html'),
       filename: 'index.html'
     })
   ],
-  devserver: {
+
+  devServer: {
     host: '0.0.0.0',
     hot: true,
     port: 8080,
     inline: true,
-    contentBase: path.join(__dirname, 'src'),
+    contentBase: path.join(__dirname, './src'),
     historyApiFallback: true
   }
-}
+};
