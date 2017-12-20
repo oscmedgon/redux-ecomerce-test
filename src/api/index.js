@@ -1,19 +1,19 @@
-import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch'
 
-const baseURL = 'https://ecommerce-api-a4661.herokuapp.com/api';
+const baseURL = 'https://ecommerce-api-a4661.herokuapp.com/api'
 
 const API = {
   products: {
     async getAll () {
-      const response = await fetch(`${baseURL}/products`);
-      const data = await response.json();
-      return data;
+      const response = await fetch(`${baseURL}/products`)
+      const data = await response.json()
+      return data
     },
 
     async getSingle (id) {
-      const response = await fetch(`${baseURL}/products/${id}`);
-      const data = await response.json();
-      return data;
+      const response = await fetch(`${baseURL}/products/${id}`)
+      const data = await response.json()
+      return data
     },
 
     async save (item) {
@@ -24,11 +24,12 @@ const API = {
           Accept: 'application/json'
         }),
         body: JSON.stringify(item)
-      });
-      const data = await response.json();
-      return data;
+      })
+      const data = await response.json()
+      console.log('data')
+      return data
     }
   }
-};
+}
 
-export default API;
+export default API

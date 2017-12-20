@@ -14,6 +14,7 @@ import API from '../api'
 // Action Creators
 
 export function fetchProductsSuccess (products) {
+  console.log('fetch success')
   return {
     type: FETCH_PRODUCTS_SUCCESS,
     payload: products
@@ -53,11 +54,11 @@ export function saveProductFailure (error) {
 export function fetchProducts () {
   return async (dispatch) => {
     dispatch(() => {
-      return{
+      return {
         type: FETCH_PRODUCTS_INIT
       }
     })
-    try{
+    try {
       const data = await API.products.getAll()
       return dispatch(fetchProductsSuccess(data.products))
     } catch (error) {
@@ -65,7 +66,7 @@ export function fetchProducts () {
     }
   }
 }
-export function fetchProduct () {
+export function fetchProduct (productId) {
   return async (dispatch) => {
     dispatch(() => {
       return {

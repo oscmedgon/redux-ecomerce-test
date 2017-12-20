@@ -29,8 +29,8 @@ ProductListContainer.defaultProps = {
 
 ProductListContainer.PropTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
-  loading: PropTypes.bool.isRiquired,
-  productActions: PropTypes.objectOf(PropTypes.func).isrequired
+  loading: PropTypes.bool.isRequired,
+  productActions: PropTypes.objectOf(PropTypes.func).isRequired
 }
 
 function mapStateToProps (state) {

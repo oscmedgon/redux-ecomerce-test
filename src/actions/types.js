@@ -2,6 +2,7 @@
 export const LOAD_CART_ITEMS = 'LOAD_CART_ITEMS'
 export const ADD_CART_ITEMS = 'ADD_CART_ITEMS'
 export const REMOVE_CART_ITEMS = 'REMOVE_CART_ITEMS'
+
 // Products Actions (async)
 export const FETCH_PRODUCTS_INIT = 'FETCH_PRODUCTS_INIT'
 export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS'
