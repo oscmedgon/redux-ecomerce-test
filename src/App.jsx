@@ -1,12 +1,11 @@
 import React, {Component, PropTypes} from 'react'
+import Header from './Commons/Header'
 
 class App extends Component {
   render () {
     return (
       <div>
-        <header>
-          Ecomerce
-        </header>
+        <Header />
         {this.props.children}
         <footer>
           &copy; Óscar Medina 2017

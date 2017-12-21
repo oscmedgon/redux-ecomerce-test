@@ -14,7 +14,6 @@ import API from '../api'
 // Action Creators
 
 export function fetchProductsSuccess (products) {
-  console.log('fetch succe')
   return {
     type: FETCH_PRODUCTS_SUCCESS,
     payload: products

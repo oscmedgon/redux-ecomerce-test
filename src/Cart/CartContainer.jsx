@@ -8,16 +8,26 @@ import CartItemList from './CartItemList'
 class CartContainer extends Component {
   constructor (props) {
     super(props)
+    this.handleOnRemoveItem = this.handleOnRemoveItem.bind(this)
   }
-  ComponentWillMount () {
-    this.props.productActions.loadCartItems()
+  componentWillMount () {
+    console.log(this.props)
+    this.props.actions.loadCartItems()
+  }
+  handleOnRemoveItem (id) {
+    this.props.actions.removeCartItem(id)
   }
   render () {
     return (
       <section className='container'>
         <CartItemList
+          onRemoveItem={this.handleOnRemoveItem}
           items={this.props.items}
         />
+        <hr />
+        <div classname='row'>
+          <p>Total: <strong>{this.props.total} &euro;</strong></p>
+        </div>
       </section>
     )
   }

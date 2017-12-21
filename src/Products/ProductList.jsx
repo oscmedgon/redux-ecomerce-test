@@ -13,7 +13,7 @@ const ProductList = ({
     <div className='row'>
       {
         products.map(product => (
-          <Product key={product._id} {...product} />
+          <Product key={product._id} onAddItem={onAddItem} {...product} />
         ))
       }
     </div>

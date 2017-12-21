@@ -1,7 +1,7 @@
 // Cart Actions
 export const LOAD_CART_ITEMS = 'LOAD_CART_ITEMS'
-export const ADD_CART_ITEMS = 'ADD_CART_ITEMS'
-export const REMOVE_CART_ITEMS = 'REMOVE_CART_ITEMS'
+export const ADD_CART_ITEM = 'ADD_CART_ITEM'
+export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM'
 
 // Products Actions (async)
 export const FETCH_PRODUCTS_INIT = 'FETCH_PRODUCTS_INIT'
